@@ -1,0 +1,12 @@
+{
+    "senses":
+      {
+      "1": "Home - Boadilla",
+      "2": "Boadilla - Home"},
+      "means":
+        {
+        "1": "Metro - Bus",
+        "2": "Metro - Metro_Ligero"
+        }
+
+}
