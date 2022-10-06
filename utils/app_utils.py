@@ -6,7 +6,7 @@ import json
 
 
 def read_codes(primary_key: str, second_key: str):
-    with open(os.path.dirname(__file__) + '/../input_files/codes.txt') as f:
+    with open(os.path.dirname(__file__) + '/../input_files/codes.json') as f:
         code = json.loads(f.read())[primary_key][second_key]
     return code
 
@@ -28,7 +28,7 @@ def get_sense():
 
 def get_travel_df() -> pd.DataFrame:
     current_day, current_time = get_times()
-    m = input("Input how you came 1) metro - bus, 2) metro - metro_ligero: ")
+    m = input("Input how you came 1) metro - bus, 2) metro - metro_ligero, 3) Moncloa: ")
     elapsed_time = int(input("Input your total time measured in minutes: "))
     direction = read_codes("senses", get_sense())
     data = pd.DataFrame({"date": current_day, "data_collection_time": current_time, "direction": direction,
