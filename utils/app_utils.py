@@ -19,7 +19,7 @@ def get_times():
 
 def get_sense():
     now = datetime.datetime.now()
-    if now < now.replace(hour=10, minute=0, second=0, microsecond=0):
+    if now < now.replace(hour=12, minute=0, second=0, microsecond=0):
         direction = "1"
     else:
         direction = "2"
