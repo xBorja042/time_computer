@@ -5,7 +5,7 @@ import os
 import json
 
 
-def read_codes(primary_key:str, second_key:str=False):
+def read_codes(primary_key:str, second_key: str = False):
     with open(os.path.dirname(__file__) + '/../input_files/codes.json') as f:
         if not second_key:
             code = json.loads(f.read())[primary_key]
@@ -33,7 +33,7 @@ def get_travel_df() -> pd.DataFrame:
     current_day, current_time = get_times()
     items = [item for item in enumerate(read_codes("means").values())]
     print(f"These are the available ways to come here {items}")
-    m = input("Input how you came 1) metro - bus, 2) metro - metro_ligero, 3) Moncloa: ")
+    m = input("Input how you came: ")
     elapsed_time = int(input("Input your total time measured in minutes: "))
     assert isinstance(elapsed_time, int), "We need a number to measure time!!"
     direction = read_codes("senses", get_sense())
