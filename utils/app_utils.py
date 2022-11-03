@@ -4,7 +4,6 @@ import time
 import os
 import json
 
-
 def read_codes(primary_key:str, second_key: str = False):
     with open(os.path.dirname(__file__) + '/../input_files/codes.json') as f:
         if not second_key:
@@ -14,10 +13,16 @@ def read_codes(primary_key:str, second_key: str = False):
     return code
 
 
-def get_times():
-    today = datetime.date.today().strftime("%d/%m/%Y")
-    hour = time.strftime('%X %x %Z')[:5]
-    return today, hour
+def get_times(current=True):
+    """Returns day and time of today or the data for previous day."""
+    if current:
+        day = datetime.datetime.today().strftime("%d/%m/%Y")
+        hour = time.strftime('%X %x %Z')[:5]
+    else:
+        day = datetime.datetime.today() - datetime.timedelta(days=1)
+        day = day.strftime("%d/%m/%Y")
+        hour = "19:00"
+    return day, hour
 
 
 def get_sense():
@@ -29,7 +34,7 @@ def get_sense():
     return direction
 
 
-def get_travel_df() -> pd.DataFrame:
+def get_travel_df(current_day, current_time) -> pd.DataFrame:
     current_day, current_time = get_times()
     items = [item for item in enumerate(read_codes("means").values())]
     print(f"These are the available ways to come here {items}")
@@ -42,15 +47,40 @@ def get_travel_df() -> pd.DataFrame:
     return data
 
 
-def get_input_file(df: pd.DataFrame):
+def write_output_file(df: pd.DataFrame):
     input_output = os.path.dirname(__file__) + '/../input_files'
     files = os.listdir(input_output)
     csv = [file for file in files if '.csv' in file]
-    # print(files, csv)
     if not csv:
         df.to_csv(input_output + "/historic_travels.csv", sep="|", index=False, header=True)
-        # print("No input DF, creating it")
     else:
         historic = pd.read_csv(input_output + "/historic_travels.csv", sep="|")
         df = pd.concat([historic, df], ignore_index=True)
         df.to_csv(input_output + "/historic_travels.csv", sep="|", index=False, header=True)
+
+
+def initial_times():
+    input_output = os.path.dirname(__file__) + '/../input_files'
+    files = os.listdir(input_output)
+    csv = [file for file in files if '.csv' in file]
+    if not csv:
+        # df = pd.DataFrame()
+        # df.to_csv(input_output + "/historic_travels.csv", sep="|", index=False, header=True)
+        day, hour = get_times()
+    else:
+        historic = pd.read_csv(input_output + "/historic_travels.csv", sep="|").sort_values(by="date")
+        last_2_days = pd.to_datetime(historic["date"].values, format='%d/%m/%Y').sort_values().values[-2:]
+        print("Last 2 days: ", last_2_days)
+        if last_2_days[0] != last_2_days[1]:
+            y = input("Hello, did you fullfilled last day travels (y/n)?")
+            if y == "y":
+                day, hour = get_times()
+            else:
+                day, hour = get_times(False)
+        else:
+            day, hour = get_times(False)
+    return day, hour
+
+
+
+        # df.to_csv(input_output + "/historic_travels.csv", sep="|", index=False, header=True)
