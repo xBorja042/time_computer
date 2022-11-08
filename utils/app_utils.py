@@ -38,9 +38,9 @@ def get_travel_df(current_day, current_time) -> pd.DataFrame:
     current_day, current_time = get_times()
     items = [item for item in enumerate(read_codes("means").values())]
     print(f"These are the available ways to come here {items}")
-    m = input("Input how you came: ")
-    assert m in items, "The way you came needs to be a valid way!!"
-    elapsed_time = int(input("Input your total time measured in minutes: "))
+    m = input("Enter how you came: ")
+    assert str(m) in read_codes("means").keys(), "The way you came needs to be a valid way!!"
+    elapsed_time = int(input("Enter your total time measured in minutes: "))
     assert isinstance(elapsed_time, int), "We need a number to measure time!!"
     direction = read_codes("senses", get_sense())
     data = pd.DataFrame({"date": current_day, "data_collection_time": current_time, "direction": direction,
@@ -73,7 +73,7 @@ def initial_times():
         last_2_days = pd.to_datetime(historic["date"].values, format='%d/%m/%Y').sort_values().values[-2:]
         print("Last 2 days: ", last_2_days)
         if last_2_days[0] != last_2_days[1]:
-            y = input("Hello, did you fullfilled last day travels (y/n)?")
+            y = input("Hello, did you fullfilled last day travels (y/n)? ")
             assert y == "y" or y == "n", "Answer needs to be either (y) or (n)!!!"
             if y == "y":
                 day, hour = get_times()
