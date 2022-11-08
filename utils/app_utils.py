@@ -73,6 +73,7 @@ def initial_times():
         print("Last 2 days: ", last_2_days)
         if last_2_days[0] != last_2_days[1]:
             y = input("Hello, did you fullfilled last day travels (y/n)?")
+            assert y == "y" or y == "n", "Answer needs to be either (y) or (n)!!!"
             if y == "y":
                 day, hour = get_times()
             else:
