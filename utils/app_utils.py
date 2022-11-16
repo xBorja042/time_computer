@@ -35,7 +35,7 @@ def get_sense():
 
 
 def get_travel_df(current_day, current_time) -> pd.DataFrame:
-    current_day, current_time = get_times()
+    # current_day, current_time = get_times()
     items = [item for item in enumerate(read_codes("means").values())]
     print(f"These are the available ways to come here {items}")
     m = input("Enter how you came: ")
@@ -77,10 +77,10 @@ def initial_times():
             assert y == "y" or y == "n", "Answer needs to be either (y) or (n)!!!"
             if y == "y":
                 day, hour = get_times()
-            else:
+            elif y == "n":
                 day, hour = get_times(False)
         else:
-            day, hour = get_times(False)
+            day, hour = get_times()
     return day, hour
 
 
