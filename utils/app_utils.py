@@ -25,9 +25,11 @@ def get_times(current=True):
     return day, hour
 
 
-def get_sense():
+def get_sense(current_day, current_time):
+    complete_time = current_day + " " + current_time
+    complete_time = datetime.datetime.strptime(complete_time, '%d/%m/%Y %H:%M')
     now = datetime.datetime.now()
-    if now < now.replace(hour=12, minute=0, second=0, microsecond=0):
+    if complete_time < now.replace(hour=12, minute=0, second=0, microsecond=0):
         direction = "1"
     else:
         direction = "2"
@@ -42,7 +44,7 @@ def get_travel_df(current_day, current_time) -> pd.DataFrame:
     assert str(m) in read_codes("means").keys(), "The way you came needs to be a valid way!!"
     elapsed_time = int(input("Enter your total time measured in minutes: "))
     assert isinstance(elapsed_time, int), "We need a number to measure time!!"
-    direction = read_codes("senses", get_sense())
+    direction = read_codes("senses", get_sense(current_day, current_time))
     data = pd.DataFrame({"date": current_day, "data_collection_time": current_time, "direction": direction,
                          "means_of_transport": read_codes("means", m), "elapsed_time (mins)": elapsed_time}, index=[0])
     return data
