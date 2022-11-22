@@ -4,6 +4,7 @@ import time
 import os
 import json
 
+
 def read_codes(primary_key:str, second_key: str = False):
     with open(os.path.dirname(__file__) + '/../input_files/codes.json') as f:
         if not second_key:
@@ -13,7 +14,7 @@ def read_codes(primary_key:str, second_key: str = False):
     return code
 
 
-def get_times(current=True):
+def get_times(current: bool = True):
     """Returns day and time of today or the data for previous day."""
     if current:
         day = datetime.datetime.today().strftime("%d/%m/%Y")
