@@ -5,7 +5,7 @@ import os
 import json
 
 
-def read_codes(primary_key:str, second_key: str = False):
+def read_codes(primary_key: str, second_key: str = False):
     """The purpose of this function is to read the input dataframe that contains the codes for the application."""
     with open(os.path.dirname(__file__) + '/../input_files/codes.json') as f:
         if not second_key:
@@ -27,7 +27,7 @@ def get_times(current: bool = True):
     return day, hour
 
 
-def get_sense(current_day:str, current_time:str):
+def get_sense(current_day: str, current_time: str):
     """This function computes the direction of the travel depending on the time of the day."""
     complete_time = current_day + " " + current_time
     complete_time = datetime.datetime.strptime(complete_time, '%d/%m/%Y %H:%M')
@@ -39,8 +39,8 @@ def get_sense(current_day:str, current_time:str):
     return direction
 
 
-def get_travel_df(current_day:str, current_time:str) -> pd.DataFrame:
-    """This function fullfills all the information related to travel history."""
+def get_travel_df(current_day: str, current_time: str) -> pd.DataFrame:
+    """This function fulfills all the information related to travel history."""
     items = [item for item in enumerate(read_codes("means").values())]
     print(f"These are the available ways to come here {items}")
     m = input("Enter how you came: ")
@@ -69,6 +69,7 @@ def initial_times():
     input_output = os.path.dirname(__file__) + '/../input_files'
     files = os.listdir(input_output)
     csv = [file for file in files if '.csv' in file]
+    day, hour = "", ""
     if not csv:
         # df = pd.DataFrame()
         # df.to_csv(input_output + "/historic_travels.csv", sep="|", index=False, header=True)
@@ -78,7 +79,7 @@ def initial_times():
         last_2_days = pd.to_datetime(historic["date"].values, format='%d/%m/%Y').sort_values().values[-2:]
         print("Last 2 days: ", last_2_days)
         if last_2_days[0] != last_2_days[1]:
-            y = input("Hello, did you fullfilled last day travels (y/n)? ")
+            y = input("Hello, did you fulfilled last day travels (y/n)? ")
             assert y == "y" or y == "n", "Answer needs to be either (y) or (n)!!!"
             if y == "y":
                 day, hour = get_times()
@@ -87,7 +88,3 @@ def initial_times():
         else:
             day, hour = get_times()
     return day, hour
-
-
-
-        # df.to_csv(input_output + "/historic_travels.csv", sep="|", index=False, header=True)
