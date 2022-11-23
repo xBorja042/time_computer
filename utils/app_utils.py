@@ -6,6 +6,7 @@ import json
 
 
 def read_codes(primary_key:str, second_key: str = False):
+    """The purpose of this function is to read the input dataframe that contains the codes for the application."""
     with open(os.path.dirname(__file__) + '/../input_files/codes.json') as f:
         if not second_key:
             code = json.loads(f.read())[primary_key]
@@ -26,7 +27,8 @@ def get_times(current: bool = True):
     return day, hour
 
 
-def get_sense(current_day, current_time):
+def get_sense(current_day:str, current_time:str):
+    """This function computes the direction of the travel depending on the time of the day."""
     complete_time = current_day + " " + current_time
     complete_time = datetime.datetime.strptime(complete_time, '%d/%m/%Y %H:%M')
     now = datetime.datetime.now()
@@ -37,8 +39,8 @@ def get_sense(current_day, current_time):
     return direction
 
 
-def get_travel_df(current_day, current_time) -> pd.DataFrame:
-    # current_day, current_time = get_times()
+def get_travel_df(current_day:str, current_time:str) -> pd.DataFrame:
+    """This function fullfills all the information related to travel history."""
     items = [item for item in enumerate(read_codes("means").values())]
     print(f"These are the available ways to come here {items}")
     m = input("Enter how you came: ")
