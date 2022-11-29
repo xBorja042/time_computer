@@ -29,10 +29,9 @@ def get_times(current: bool = True):
 
 def get_sense(current_day: str, current_time: str):
     """This function computes the direction of the travel depending on the time of the day."""
-    complete_time = current_day + " " + current_time
-    complete_time = datetime.datetime.strptime(complete_time, '%d/%m/%Y %H:%M')
-    now = datetime.datetime.now()
-    if complete_time < now.replace(hour=12, minute=0, second=0, microsecond=0):
+    comparing_time = current_time
+    midday = "12:00"
+    if comparing_time < midday:
         direction = "1"
     else:
         direction = "2"
@@ -66,18 +65,17 @@ def write_output_file(df: pd.DataFrame):
 
 
 def initial_times():
+    """This function limits travel times"""
     input_output = os.path.dirname(__file__) + '/../input_files'
     files = os.listdir(input_output)
     csv = [file for file in files if '.csv' in file]
     day, hour = "", ""
     if not csv:
-        # df = pd.DataFrame()
-        # df.to_csv(input_output + "/historic_travels.csv", sep="|", index=False, header=True)
         day, hour = get_times()
     else:
         historic = pd.read_csv(input_output + "/historic_travels.csv", sep="|").sort_values(by="date")
         last_2_days = pd.to_datetime(historic["date"].values, format='%d/%m/%Y').sort_values().values[-2:]
-        print("Last 2 days: ", last_2_days)
+        # print("Last 2 days: ", last_2_days)
         if last_2_days[0] != last_2_days[1]:
             y = input("Hello, did you fulfilled last day travels (y/n)? ")
             assert y == "y" or y == "n", "Answer needs to be either (y) or (n)!!!"
