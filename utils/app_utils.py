@@ -27,7 +27,7 @@ def get_times(current: bool = True):
     return day, hour
 
 
-def get_sense(current_day: str, current_time: str):
+def get_sense(current_time: str):
     """This function computes the direction of the travel depending on the time of the day."""
     comparing_time = current_time
     midday = "12:00"
