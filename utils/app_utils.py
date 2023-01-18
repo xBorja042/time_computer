@@ -46,22 +46,24 @@ def get_travel_df(current_day: str, current_time: str) -> pd.DataFrame:
     assert str(m) in read_codes("means").keys(), "The way you came needs to be a valid way!!"
     elapsed_time = int(input("Enter your total time measured in minutes: "))
     assert isinstance(elapsed_time, int), "We need a number to measure time!!"
-    direction = read_codes("senses", get_sense(current_day, current_time))
+    direction = read_codes("senses", get_sense(current_time))
     data = pd.DataFrame({"date": current_day, "data_collection_time": current_time, "direction": direction,
                          "means_of_transport": read_codes("means", m), "elapsed_time (mins)": elapsed_time}, index=[0])
     return data
 
 
 def write_output_file(df: pd.DataFrame):
+    """This function writes the resulting file with all the information from travels"""
     input_output = os.path.dirname(__file__) + '/../input_files'
     files = os.listdir(input_output)
     csv = [file for file in files if '.csv' in file]
+    file_name = "/historic_travels.csv"
     if not csv:
-        df.to_csv(input_output + "/historic_travels.csv", sep="|", index=False, header=True)
+        df.to_csv(input_output + file_name, sep="|", index=False, header=True)
     else:
-        historic = pd.read_csv(input_output + "/historic_travels.csv", sep="|")
+        historic = pd.read_csv(input_output + file_name, sep="|")
         df = pd.concat([historic, df], ignore_index=True)
-        df.to_csv(input_output + "/historic_travels.csv", sep="|", index=False, header=True)
+        df.to_csv(input_output + file_name, sep="|", index=False, header=True)
 
 
 def initial_times():
