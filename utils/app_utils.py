@@ -77,7 +77,6 @@ def initial_times():
     else:
         historic = pd.read_csv(input_output + "/historic_travels.csv", sep="|").sort_values(by="date")
         last_2_days = pd.to_datetime(historic["date"].values, format='%d/%m/%Y').sort_values().values[-2:]
-        # print("Last 2 days: ", last_2_days)
         if last_2_days[0] != last_2_days[1]:
             y = input("Hello, did you fulfilled last day travels (y/n)? ")
             assert y == "y" or y == "n", "Answer needs to be either (y) or (n)!!!"
