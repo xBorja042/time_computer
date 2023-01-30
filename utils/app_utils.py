@@ -18,11 +18,7 @@ def read_codes(primary_key: str, second_key: str = False):
 def get_times(current: bool = True):
     """Returns day and time of today or the data for previous day."""
     if current:
-        remember = input("Do you remember departure time (y/n)? ")
-        if remember == "y":
-            hour = input("OK. Then input your departure time in (hh:mm): ")
-        else:
-            hour = time.strftime('%X %x %Z')[:5]
+        hour = time.strftime('%X %x %Z')[:5]
         day = datetime.datetime.today().strftime("%d/%m/%Y")
     else:
         day = datetime.datetime.today() - datetime.timedelta(days=1)
