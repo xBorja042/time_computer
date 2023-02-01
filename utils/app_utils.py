@@ -18,7 +18,11 @@ def read_codes(primary_key: str, second_key: str = False):
 def get_times(current: bool = True):
     """Returns day and time of today or the data for previous day."""
     if current:
-        hour = time.strftime('%X %x %Z')[:5]
+        remember = input("Do you remember departure time (y/n)? ")
+        if remember == "y":
+            hour = input("OK. Then input your departure time in (hh:mm): ")
+        else:
+            hour = time.strftime('%X %x %Z')[:5]
         day = datetime.datetime.today().strftime("%d/%m/%Y")
     else:
         day = datetime.datetime.today() - datetime.timedelta(days=1)
@@ -81,7 +85,6 @@ def initial_times():
     else:
         historic = pd.read_csv(input_output + "/historic_travels.csv", sep="|").sort_values(by="date")
         last_2_days = pd.to_datetime(historic["date"].values, format='%d/%m/%Y').sort_values().values[-2:]
-        # print("Last 2 days: ", last_2_days)
         if last_2_days[0] != last_2_days[1]:
             y = input("Hello, did you fulfilled last day travels (y/n)? ")
             assert y == "y" or y == "n", "Answer needs to be either (y) or (n)!!!"
