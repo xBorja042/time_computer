@@ -2,11 +2,14 @@ import tkinter as tk
 
 fields = 'Available Ways \n 0 -Metro - Bus 1- Metro - Metro_Ligero \n 2- Moncloa Way Bus - Bus \n 3- Ppio ML \n 4 Ppio Bus', 'Elapsed time measured in minutes'
 
+
 def fetch(entries):
     for entry in entries:
         field = entry[0]
-        text  = entry[1].get()
-        print('%s: "%s"' % (field, text)) 
+        text = entry[1].get()
+        print('%s: "%s"' % (field, text))
+    return text
+
 
 def makeform(root, fields):
     entries = []
@@ -19,6 +22,7 @@ def makeform(root, fields):
         ent.pack(side=tk.RIGHT, expand=tk.YES, fill=tk.X)
         entries.append((field, ent))
     return entries
+
 
 if __name__ == '__main__':
     root = tk.Tk()
