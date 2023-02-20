@@ -53,19 +53,28 @@ def get_travel_df(current_day: str, current_time: str) -> pd.DataFrame:
     m = input("Enter how you came: ")
     assert str(m) in read_codes("means").keys(), "The way you came needs to be a valid way!!"
     elapsed_time = int(input("Enter your total time measured in minutes: "))
+    observation = input_obs()
     assert isinstance(elapsed_time, int), "We need a number to measure time!!"
     direction = read_codes("senses", get_sense(current_time))
     data = pd.DataFrame({"date": current_day, "data_collection_time": current_time, "direction": direction,
-                         "means_of_transport": read_codes("means", m), "elapsed_time (mins)": elapsed_time}, index=[0])
+                         "means_of_transport": read_codes("means", m), "elapsed_time (mins)": elapsed_time, "observation": observation}, index=[0])
     return data
 
+
+def input_obs() -> str:
+    any_obs = input("Do you have any observation? (y/n): ")
+    if any_obs == "y":
+        obs = input("Enter a short observation: ")
+    else:
+        obs = ""
+    return obs
 
 def write_output_file(df: pd.DataFrame):
     """This function writes the resulting file with all the information from travels"""
     input_output = os.path.dirname(__file__) + '/../input_files'
     files = os.listdir(input_output)
     csv = [file for file in files if '.csv' in file]
-    file_name = "/historic_travels.csv"
+    file_name = "/historic_travels2.csv"
     if not csv:
         df.to_csv(input_output + file_name, sep="|", index=False, header=True)
     else:
