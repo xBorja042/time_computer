@@ -1,2 +1,1 @@
 *.pyc
-echo '.idea' >> .gitignore
