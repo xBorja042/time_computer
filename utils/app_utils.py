@@ -92,7 +92,7 @@ def initial_times():
     if not csv:
         day, hour = get_times()
     else:
-        historic = pd.read_csv(input_output + "/historic_travels.csv", sep="|").sort_values(by="date")
+        historic = pd.read_csv(input_output + "/historic_travels2.csv", sep="|").sort_values(by="date")
         last_2_days = pd.to_datetime(historic["date"].values, format='%d/%m/%Y').sort_values().values[-2:]
         if last_2_days[0] != last_2_days[1]:
             y = input("Hello, did you fulfilled last day travels (y/n)? ")
