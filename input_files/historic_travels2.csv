@@ -12,16 +12,16 @@ date|data_collection_time|direction|means_of_transport|elapsed_time (mins)|obser
 25/10/2022|08:29|Home - Boadilla|Principe - Pio ML|69|
 25/10/2022|16:36|Boadilla - Home|Principe - Pio ML|69|
 26/10/2022|16:39|Boadilla - Home|Principe - Pio ML|75|
-02/11/2022|16:37|Boadilla - Home|Moncloa Way Bus - Bus|80|
+02/11/2022|16:37|Boadilla - Home|Moncloa Way Bus - Bus|80|Lluvia
 03/11/2022|14:46|Boadilla - Home|Metro - Bus|65|
 08/11/2022|09:27|Home - Boadilla|Principe - Pio ML|60|
 15/11/2022|08:45|Home - Boadilla|Principe - Pio ML|70|
-15/11/2022|19:00|Home - Boadilla|Principe - Pio Bus|80|
+15/11/2022|19:00|Home - Boadilla|Principe - Pio Bus|80|Lluvia
 16/11/2022|13:46|Boadilla - Home|Principe - Pio ML|71|
 16/11/2022|19:00|Home - Boadilla|Principe - Pio ML|65|
 22/11/2022|09:02|Home - Boadilla|Principe - Pio ML|69|
-22/11/2022|19:00|Home - Boadilla|Principe - Pio ML|75|
-23/11/2022|08:36|Home - Boadilla|Principe - Pio ML|70|
+22/11/2022|19:00|Home - Boadilla|Principe - Pio ML|75|Lluvia
+23/11/2022|08:36|Home - Boadilla|Principe - Pio ML|70|Lluvia
 23/11/2022|19:00|Boadilla - Home|Principe - Pio Bus|52|
 29/11/2022|08:59|Home - Boadilla|Principe - Pio ML|72|
 29/11/2022|19:00|Boadilla - Home|Principe - Pio ML|75|
@@ -41,3 +41,5 @@ date|data_collection_time|direction|means_of_transport|elapsed_time (mins)|obser
 15/02/2023|7:10|Boadilla - Home|C1 - Metro PPio|68|
 15/02/2023|13:35|Boadilla - Home|Bus Express Moncloa - C1|54|
 20/02/2023|07:12|Home - Boadilla|Bus C1 - Metro Ppio - ML|79|una para de sentido erroneo
+20/02/2023|17:25|Boadilla - Home|Metro - Bus|59|
+22/02/2023|07:10|Home - Boadilla|Metro - Metro_Ligero|64|
