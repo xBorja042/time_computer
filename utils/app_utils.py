@@ -19,6 +19,7 @@ def get_times(current: bool = True):
     """Returns day and time of today or the data for previous day."""
     if current:
         remember = input("Do you remember departure time (y/n)? ")
+        assert remember == "y" or remember == "n", "Answer needs to be either (y) or (n)!!!"
         if remember == "y":
             hour = input("OK. Then input your departure time in (hh:mm): ")
         else:
@@ -63,11 +64,13 @@ def get_travel_df(current_day: str, current_time: str) -> pd.DataFrame:
 
 def input_obs() -> str:
     any_obs = input("Do you have any observation? (y/n): ")
+    assert any_obs == "y" or any_obs == "n", "Answer needs to be either (y) or (n)!!!"
     if any_obs == "y":
         obs = input("Enter a short observation: ")
     else:
         obs = ""
     return obs
+
 
 def write_output_file(df: pd.DataFrame):
     """This function writes the resulting file with all the information from travels"""
@@ -95,12 +98,18 @@ def initial_times():
         historic = pd.read_csv(input_output + "/historic_travels2.csv", sep="|").sort_values(by="date")
         last_2_days = pd.to_datetime(historic["date"].values, format='%d/%m/%Y').sort_values().values[-2:]
         if last_2_days[0] != last_2_days[1]:
-            y = input("Hello, did you fulfilled last day travels (y/n)? ")
+            y = input("Hello, did you fulfill last day return journey (y/n)? ")
             assert y == "y" or y == "n", "Answer needs to be either (y) or (n)!!!"
             if y == "y":
                 day, hour = get_times()
             elif y == "n":
-                day, hour = get_times(False)
+                day = datetime.datetime.today().strftime("%d/%m/%Y")
+                last_travel = pd.to_datetime(last_2_days[1]).strftime("%d/%m/%Y")
+                print(day, last_travel)
+                if day == last_travel:
+                    _, hour = get_times()
+                else:
+                    day, hour = get_times()
         else:
             day, hour = get_times()
     return day, hour
