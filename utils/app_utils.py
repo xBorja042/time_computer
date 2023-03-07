@@ -109,7 +109,7 @@ def initial_times():
                 if day == last_travel:
                     _, hour = get_times()
                 else:
-                    day, hour = get_times()
+                    day, hour = get_times(current=False)
         else:
             day, hour = get_times()
     return day, hour
