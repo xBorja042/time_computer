@@ -105,7 +105,6 @@ def initial_times():
             elif y == "n":
                 day = datetime.datetime.today().strftime("%d/%m/%Y")
                 last_travel = pd.to_datetime(last_2_days[1]).strftime("%d/%m/%Y")
-                print(day, last_travel)
                 if day == last_travel:
                     _, hour = get_times()
                 else:
