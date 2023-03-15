@@ -9,3 +9,5 @@ Just run the main program to record data.
 ```bash
 python main.py
 ```
+
+![times_plot](analytics/output_files/times_plot.png)

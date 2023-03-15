@@ -25,6 +25,7 @@ elapsed_times = df["elapsed_time (mins)"].to_numpy(copy=True)
 plt.scatter(range(len(elapsed_times)), elapsed_times)
 df["elapsed_time (mins)"].plot()
 plt.title("Elapsed travel times measured in minutes")
+plt.savefig("output_files/times_plot.png")
 plt.show()
 
 
