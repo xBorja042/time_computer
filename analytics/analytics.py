@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import os
 
@@ -26,9 +27,12 @@ for direction in df["direction"].unique().tolist():
     sub_df = df.loc[df["direction"] == direction].reset_index()
     elapsed_times = sub_df["elapsed_time (mins)"].to_numpy(copy=True)
     plt.scatter(range(len(elapsed_times)), elapsed_times)
+    plt.plot(range(len(elapsed_times)), [np.mean(elapsed_times) for i in range(len(elapsed_times))])
     print(sub_df)
     sub_df["elapsed_time (mins)"].plot()
     plt.title("Elapsed travel times measured in minutes")
-    # plt.savefig("output_files/times_plot.png")
-plt.legend(["Ida", "", "Vuelta", ""])
+
+    plt.legend(["Ida", "", "Vuelta", ""])
+plt.savefig("output_files/times_plot.png")
 plt.show()
+
