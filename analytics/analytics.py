@@ -31,7 +31,7 @@ for direction in df["direction"].unique().tolist():
     mean_time = np.mean(elapsed_times)
     plt.plot(range(len(elapsed_times)), elapsed_times, marker="o")
     plt.plot(range(len(elapsed_times)), [mean_time for i in range(len(elapsed_times))])
-    plt.text(q, 70, direction + "_" + str(mean_time)[:2], rotation=40, verticalalignment='center')
+    plt.text(q, 75, direction + "_" + str(mean_time)[:2], rotation=40, verticalalignment='center')
     q += 12
     plt.title("Elapsed travel times measured in minutes")
     plt.legend([direction, "Media_" + direction])
@@ -41,3 +41,6 @@ plt.legend(["Ida", "tiempo_medio_ida", "vuelta", "tiempo_medio_vuelta"])
 plt.savefig("output_files/times_plot" + direction + ".png")
 plt.show()
 
+
+df["elapsed_time (mins)"].plot()
+plt.show()
