@@ -1,0 +1,82 @@
+date|data_collection_time|direction|means_of_transport|elapsed_time (mins)|observation|week_day
+27/09/2022|07:08|Home - Boadilla|Metro - Bus|65||Tuesday
+28/09/2022|18:41|Boadilla - Home|Metro - Bus|70||Wednesday
+29/09/2022|07:17|Home - Boadilla|Metro - Bus|63||Thursday
+29/09/2022|18:43|Boadilla - Home|Metro - Bus|65||Thursday
+05/10/2022|18:45|Boadilla - Home|Metro - Bus|73||Wednesday
+06/10/2022|08:46|Home - Boadilla|Metro - Bus|59||Thursday
+11/10/2022|08:27|Home - Boadilla|Metro - Metro_Ligero|67||Tuesday
+11/10/2022|13:09|Boadilla - Home|Moncloa Way  Bus - Bus|90||Tuesday
+18/10/2022|08:55|Home - Boadilla|Principe - Pio ML|69||Tuesday
+19/10/2022|18:35|Boadilla - Home|Principe - Pio Bus|59||Wednesday
+25/10/2022|08:29|Home - Boadilla|Principe - Pio ML|69||Tuesday
+25/10/2022|16:36|Boadilla - Home|Principe - Pio ML|69||Tuesday
+26/10/2022|16:39|Boadilla - Home|Principe - Pio ML|75||Wednesday
+02/11/2022|16:37|Boadilla - Home|Moncloa Way Bus - Bus|80|lluvia|Wednesday
+03/11/2022|14:46|Boadilla - Home|Metro - Bus|65||Thursday
+08/11/2022|09:27|Home - Boadilla|Principe - Pio ML|60||Tuesday
+15/11/2022|08:45|Home - Boadilla|Principe - Pio ML|70||Tuesday
+15/11/2022|19:00|Home - Boadilla|Principe - Pio Bus|80|lluvia|Tuesday
+16/11/2022|13:46|Boadilla - Home|Principe - Pio ML|71||Wednesday
+16/11/2022|19:00|Home - Boadilla|Principe - Pio ML|65||Wednesday
+22/11/2022|09:02|Home - Boadilla|Principe - Pio ML|69||Tuesday
+22/11/2022|19:00|Home - Boadilla|Principe - Pio ML|75|lluvia|Tuesday
+23/11/2022|08:36|Home - Boadilla|Principe - Pio ML|70|lluvia|Wednesday
+23/11/2022|19:00|Boadilla - Home|Principe - Pio Bus|52||Wednesday
+29/11/2022|08:59|Home - Boadilla|Principe - Pio ML|72||Tuesday
+29/11/2022|19:00|Boadilla - Home|Principe - Pio ML|75||Tuesday
+30/11/2022|08:37|Home - Boadilla|Principe - Pio ML|69||Wednesday
+16/01/2023|08:42|Home - Boadilla|Tribunal ML|65||Monday
+18/01/2023|08:37|Home - Boadilla|Tribunal ML|58||Wednesday
+23/01/2023|08:30|Home - Boadilla|Tribunal ML|68||Monday
+31/01/2023|17:15|Boadilla - Home|Metro - Bus|58||Tuesday
+01/02/2023|07:10|Boadilla - Home|Tribunal ML|67||Wednesday
+01/02/2023|17:25|Boadilla - Home|Metro - Bus|58||Wednesday
+06/02/2023|07:10|Home - Boadilla|Tribunal ML|63||Monday
+06/02/2023|17:15|Boadilla - Home|Metro - Bus|68||Monday
+08/02/2023|07:15|Home - Boadilla|Principe - Pio ML|62||Wednesday
+08/02/2023|17:35|Boadilla - Home|Metro - Bus|63||Wednesday
+13/02/2023|07:15|Home - Boadilla|Doble Bus C1 - Tribunal|70||Monday
+13/02/2023|17:25|Boadilla - Home|Metro - Bus|52||Monday
+15/02/2023|07:10|Boadilla - Home|C1 - Metro PPio|68||Wednesday
+15/02/2023|13:35|Boadilla - Home|Bus Express Moncloa - C1|54||Wednesday
+20/02/2023|07:12|Home - Boadilla|Bus C1 - Metro Ppio - ML|79|sentido erroneo en metro|Monday
+20/02/2023|17:25|Boadilla - Home|Metro - Bus|59||Monday
+22/02/2023|07:10|Home - Boadilla|Metro - Metro_Ligero|64||Wednesday
+22/02/2023|17:30|Boadilla - Home|Metro - Bus|63||Wednesday
+27/02/2023|07:15|Home - Boadilla|Metro - Metro_Ligero|67||Monday
+27/02/2023|13:30|Boadilla - Home|Bus Express Moncloa - C1|65||Monday
+01/03/2023|07:10|Home - Boadilla|Metro - Metro_Ligero|66|comprar abono|Wednesday
+01/03/2023|18:05|Boadilla - Home|Principe - Pio ML|60||Wednesday
+06/03/2023|07:10|Home - Boadilla|Tribunal ML|62||Monday
+06/03/2023|17:20|Boadilla - Home|Metro - Bus|58||Monday
+08/03/2023|07:12|Home - Boadilla|Metro - Metro_Ligero|68||Wednesday
+08/03/2023|17:20|Boadilla - Home|Metro - Bus|57||Wednesday
+13/03/2023|07:20|Home - Boadilla|Metro - Metro_Ligero|61|perdida de bus|Monday
+13/03/2023|17:19|Boadilla - Home|Tribunal Bus|51||Monday
+15/03/2023|17:28|Boadilla - Home|Metro - Bus|71|bus camino alternativo|Wednesday
+22/03/2023|07:07|Home - Boadilla|Metro - Metro_Ligero|67||Wednesday
+22/03/2023|17:18|Boadilla - Home|Metro - Bus|63||Wednesday
+27/03/2023|07:13|Home - Boadilla|Metro - Bus|65||Monday
+28/03/2023|17:29|Boadilla - Home|Metro - Bus|70||Tuesday
+29/03/2023|07:10|Home - Boadilla|Metro - Metro_Ligero|71||Wednesday
+29/03/2023|17:28|Boadilla - Home|Metro - Bus|71|sali en bus 730|Wednesday
+03/04/2023|07:15|Home - Boadilla|Metro - Bus|68|comprar billete|Monday
+03/04/2023|17:28|Boadilla - Home|Metro - Bus|55||Monday
+10/04/2023|07:15|Home - Boadilla|Tribunal Bus|54|comprar abono|Monday
+10/04/2023|17:28|Boadilla - Home|Metro - Bus|62||Monday
+12/04/2023|07:18|Home - Boadilla|Metro - Bus|57|vuelta a cerrar puerta|Wednesday
+12/04/2023|17:40|Boadilla - Home|Metro - Bus|62||Wednesday
+17/04/2023|07:22|Home - Boadilla|Metro - Bus|60|bus petado no dejo subir|Monday
+17/04/2023|17:25|Boadilla - Home|Metro - Bus|64||Monday
+19/04/2023|07:13|Home - Boadilla|Metro - Bus|56||Wednesday
+19/04/2023|17:20|Boadilla - Home|Metro - Bus|72||Wednesday
+24/04/2023|07:14|Boadilla - Home|Metro - Bus|55||Monday
+24/04/2023|17:18|Boadilla - Home|Metro - Bus|53||Monday
+26/04/2023|07:21|Home - Boadilla|Metro - Bus|57||Wednesday
+26/04/2023|17:25|Boadilla - Home|Metro - Bus|69|sali en bus 730|Wednesday
+08/05/2023|07:12|Home - Boadilla|Metro - Bus|73|sentido erroneo en metro|Monday
+08/05/2023|17:22|Boadilla - Home|Metro - Bus|63||Monday
+10/05/2023|07:14|Home - Boadilla|Metro - Bus|59|comprar abono|Wednesday
+17/05/2023|07:17|Home - Boadilla|Metro - Bus|59||Wednesday
+22/05/2023|07:14|Home - Boadilla|Metro - Bus|58||
