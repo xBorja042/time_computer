@@ -77,7 +77,7 @@ def write_output_file(df: pd.DataFrame):
     input_output = os.path.dirname(__file__) + '/../input_files'
     files = os.listdir(input_output)
     csv = [file for file in files if '.csv' in file]
-    file_name = "/historic_travels2.csv"
+    file_name = "/historic_travels4.csv"
     if not csv:
         df.to_csv(input_output + file_name, sep="|", index=False, header=True)
     else:
