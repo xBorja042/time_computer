@@ -55,7 +55,7 @@ def get_travel_df(current_day: str, current_time: str) -> pd.DataFrame:
     assert str(m) in read_codes("means").keys(), "The way you came needs to be a valid way!!"
     elapsed_time = int(input("Enter your total time measured in minutes: "))
     observation = input_obs()
-    assert isinstance(elapsed_time, int), "We need a number to measure time!!"
+    test_elapsed_time(elapsed_time)
     direction = read_codes("senses", get_sense(current_time))
     data = pd.DataFrame({"date": current_day, "data_collection_time": current_time, "direction": direction,
                          "means_of_transport": read_codes("means", m), "elapsed_time (mins)": elapsed_time, "observation": observation}, index=[0])
@@ -95,7 +95,7 @@ def initial_times():
     if not csv:
         day, hour = get_times()
     else:
-        historic = pd.read_csv(input_output + "/historic_travels2.csv", sep="|").sort_values(by="date")
+        historic = pd.read_csv(input_output + "/historic_travels4.csv", sep="|").sort_values(by="date")
         last_2_days = pd.to_datetime(historic["date"].values, format='%d/%m/%Y').sort_values().values[-2:]
         if last_2_days[0] != last_2_days[1]:
             y = input("Hello, did you fulfill last day return journey (y/n)? ")
@@ -112,3 +112,8 @@ def initial_times():
         else:
             day, hour = get_times()
     return day, hour
+
+
+def test_elapsed_time(elapsed_time: int):
+    assert isinstance(elapsed_time, int), "We need a number to measure time!!"
+    assert 10 < elapsed_time < 300, "Elapsed time needs to be in correct range!!"
