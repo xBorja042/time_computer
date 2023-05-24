@@ -1,5 +1,6 @@
 import pandas as pd
 import datetime
+from datetime import date
 import time
 import os
 import json
@@ -56,9 +57,11 @@ def get_travel_df(current_day: str, current_time: str) -> pd.DataFrame:
     elapsed_time = int(input("Enter your total time measured in minutes: "))
     observation = input_obs()
     test_elapsed_time(elapsed_time)
+    day_name = compute_day_name(current_day=current_day)
     direction = read_codes("senses", get_sense(current_time))
     data = pd.DataFrame({"date": current_day, "data_collection_time": current_time, "direction": direction,
-                         "means_of_transport": read_codes("means", m), "elapsed_time (mins)": elapsed_time, "observation": observation}, index=[0])
+                         "means_of_transport": read_codes("means", m), "elapsed_time (mins)": elapsed_time,
+                         "observation": observation, "week_day": day_name}, index=[0])
     return data
 
 
@@ -117,3 +120,7 @@ def initial_times():
 def test_elapsed_time(elapsed_time: int):
     assert isinstance(elapsed_time, int), "We need a number to measure time!!"
     assert 10 < elapsed_time < 300, "Elapsed time needs to be in correct range!!"
+
+
+def compute_day_name(current_day: str) -> str:
+    return datetime.datetime.strptime(current_day, '%d/%m/%Y').strftime("%A")
