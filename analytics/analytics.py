@@ -21,6 +21,7 @@ df.to_csv(output_file_path, sep="|")
 import matplotlib.pyplot as plt
 
 q = 12
+df = df.loc[df["means_of_transport"] != "Coche", :]
 
 for direction in df["direction"].unique().tolist():
     print(" DIRECTION ", direction)
